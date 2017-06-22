@@ -1,6 +1,15 @@
 ghc-major-version: "8.0"
 # Constraints for brand new builds
 packages:
+    "Johannes Gerer <oss@johannesgerer.com>":
+        - GoogleCodeJam
+        - Lykah
+        - blazeT
+        - buchhaltung
+        - doi
+        - hax
+        - memis
+
     "Pasqualino Assini <tittoassini@gmail.com> @tittoassini":
         - zm
         - flat
