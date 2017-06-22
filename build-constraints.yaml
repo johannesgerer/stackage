@@ -27,8 +27,9 @@ packages:
     "Joshua Koike <jkoike2013@gmail.com> @jano017":
         - discord-hs
 
-    "Roman Gonzalez <romanandreg@gmail.com @roman":
+    "Roman Gonzalez <romanandreg@gmail.com> @roman":
         - etc
+        - teardown
 
     "Richard Cook <rcook@rcook.org> @rcook":
         - hidden-char
@@ -461,16 +462,16 @@ packages:
     "Edward Kmett <ekmett@gmail.com> @ekmett":
         - ad
         - adjunctions
-        # - approximate # bounds: binary, comonad, pointed
+        - approximate
         - bifunctors
         - bits
-        # - bound # bounds: binary, comonad, doctest, transformers, vector
+        - bound
         - bytes
         - charset
         - comonad
         - comonads-fd
         - comonad-transformers
-        # - compensated # bounds: binary, comonad, generic-deriving, safecopy
+        - compensated
         # - compressed # bounds: comonad, pointed
         - concurrent-supply
         - constraints
@@ -484,6 +485,7 @@ packages:
         - graphs
         - groupoids
         - heaps
+        - hyperloglog
         - hyphenation
         - integration
         - intervals
@@ -492,7 +494,7 @@ packages:
         - lens
         - linear
         - linear-accelerate
-        # - log-domain # via safecopy: bounds: vector
+        - log-domain
         - machines
         - monadic-arrays
         - monad-products
@@ -527,7 +529,6 @@ packages:
         - gl
         - lens-aeson
         - zlib-lens
-        # - hyperloglog # bounds: approximate, binary, comonad
 
     "Andrew Farmer <afarmer@ittc.ku.edu> @xich":
         - scotty
@@ -1218,6 +1219,7 @@ packages:
         - binary-orphans
         - binary-tagged
         - cabal-doctest
+        - dlist-nonempty
         - edit-distance
         - functor-classes-compat
         - generics-sop-lens
@@ -2197,6 +2199,7 @@ packages:
         - path
         - forma
         - stache
+        - parser-combinators
 
     # "Thomas Bereknyei <tomberek@gmail.com>":
         # - multiplate # bounds: transformers
@@ -2877,6 +2880,11 @@ packages:
         - threads-extra
         - clock-extras
         - next-ref
+        - tmp-postgres
+        - postgresql-simple-opts
+        - pg-transact
+        - hspec-pg-transact
+        - postgresql-simple-queue
 
     "Bernie Pope <bjpope@unimelb.edu.au> @bjpop":
         - language-python
@@ -2992,6 +3000,7 @@ packages:
     "ncaq <ncaq@ncaq.net> @ncaq":
         - haskell-import-graph
         - uniq-deep
+        - yesod-recaptcha2
 
     "Andrei Barbu <andrei@0xab.com> @abarbu":
         - nondeterminism
@@ -3107,6 +3116,9 @@ packages:
 
     "Mark Hopkins <markjohnhopkins@gmail.com> @mjhopkins":
         - alerta
+        
+    "Steven Vandevelde <icid.asset@gmail.com> @icidasset":
+        - shikensu
 
     # If you stop maintaining a package you can move it here.
     # It will then be disabled if it starts causing problems.
@@ -3145,14 +3157,6 @@ packages:
         # https://github.com/fpco/stackage/issues/2251
         - sbv < 5.15
 
-        # https://github.com/fpco/stackage/issues/2312
-        - xml-conduit < 1.5.0
-        - atom-conduit < 0.4.0.2
-        - imm < 1.1.0.1
-        - opml-conduit < 0.6.0.2
-        - rss-conduit < 0.3.0.1
-        - MusicBrainz < 0.3
-
         # https://github.com/fpco/stackage/issues/2317
         - skylighting < 0.2
 
@@ -3183,6 +3187,7 @@ packages:
 
         # https://github.com/fpco/stackage/issues/2451
         - websockets < 0.11.0.0
+        - servant-subscriber < 0.6.0.1 # requires 0.11 on websockets
 
         # https://github.com/fpco/stackage/issues/2464
         - traverse-with-class < 1.0.0.0
@@ -3246,9 +3251,6 @@ packages:
         # https://github.com/haskell/haddock/issues/634
         - haddock < 2.17.5
 
-        # https://github.com/fpco/stackage/issues/2568
-        - foundation < 0.0.10
-
         # https://github.com/fpco/stackage/issues/2569
         - optparse-applicative < 0.14
 
@@ -3258,14 +3260,37 @@ packages:
         # https://github.com/jaspervdj/hakyll/issues/544
         - hakyll < 4.9.6.0
 
-        # https://github.com/dredozubov/schematic/issues/1
-        - schematic < 0.1.2
-
-        # https://github.com/fpco/stackage/issues/2574
-        - brick < 0.18
-
         # https://github.com/fpco/stackage/issues/2577
         - hint < 0.7
+
+        # https://github.com/fpco/stackage/issues/2583
+        - path < 0.6
+
+        # https://github.com/fpco/stackage/issues/2584
+        - tasty-quickcheck < 0.9
+
+        # https://github.com/fpco/stackage/issues/2586
+        - QuickCheck < 2.10
+        - these < 0.7.4
+
+        # https://github.com/fpco/stackage/issues/2587
+        - extra < 1.6
+
+        # https://github.com/michalkonecny/mixed-types-num/issues/1
+        - mixed-types-num < 0.2
+
+        # https://github.com/fpco/stackage/issues/2590
+        - text-show < 3.6.2
+
+        # https://github.com/fpco/stackage/issues/2594
+        - req < 0.3.0 # also remove from expected-test-failure
+        - req-conduit < 0.2.0 # because of above
+
+        # https://github.com/fpco/stackage/issues/2595
+        - cassava < 0.5.0.0
+
+        # https://github.com/fpco/stackage/issues/2601
+        - prettyprinter-ansi-terminal < 1.1
 
 # end of packages
 
@@ -3500,6 +3525,9 @@ skipped-tests:
     # criterion
     - store
 
+    # wrong package.yaml file
+    - teardown # https://github.com/roman/Haskell-teardown/issues/1
+
 # end of skipped-tests
 
 # Tests which we should build and run, but which are expected to fail. We
@@ -3646,6 +3674,10 @@ expected-test-failures:
     - xmonad # 0.12 https://github.com/xmonad/xmonad/issues/36
     - pixelated-avatar-generator # 0.1.3 https://github.com/ExcaliburZero/pixelated-avatar-generator/issues/19
     - xml-picklers # https://github.com/Philonous/xml-picklers/issues/5
+    - throwable-exceptions # https://github.com/aiya000/hs-throwable-exceptions/issues/2
+    - shikensu # https://github.com/icidasset/shikensu/issues/5
+    - cacophony # https://github.com/centromere/cacophony/issues/5
+    - pipes-cacophony # https://github.com/centromere/pipes-cacophony/issues/3
 
     # Compilation failures
     - ListLike # No issue tracker, e-mail sent to maintainer
@@ -3692,11 +3724,9 @@ expected-test-failures:
     - servant # https://github.com/haskell-servant/servant/issues/698
     - snap-core # https://github.com/snapframework/snap-core/issues/26
     - stm-delay # https://github.com/joeyadams/haskell-stm-delay/issues/5
-    - atom-conduit # https://github.com/k0ral/atom-conduit/issues/1
-    - conduit-parse # https://github.com/k0ral/conduit-parse/issues/1
-    - opml-conduit # https://github.com/k0ral/opml-conduit/issues/6
-    - rss-conduit # https://github.com/k0ral/rss-conduit/issues/4
-    - xml-conduit-parse # https://github.com/k0ral/xml-conduit-parse/issues/2
+    - pg-transact # https://github.com/jfischoff/pg-transact/issues/2
+    - tmp-postgres # https://github.com/jfischoff/tmp-postgres/issues/1
+    - postgresql-simple-queue # same issue as before, see also https://github.com/fpco/stackage/issues/2592 as that will fix both
 
 # end of expected-test-failures
 
@@ -3723,6 +3753,9 @@ expected-benchmark-failures:
     - thyme # https://github.com/liyang/thyme/issues/50
     - xmlgen # https://github.com/skogsbaer/xmlgen/issues/6
     - ghc-mod # https://github.com/DanielG/ghc-mod/issues/895
+
+    # wrong package.yaml file
+    - teardown # https://github.com/roman/Haskell-teardown/issues/1
 
 # end of expected-benchmark-failures
 
@@ -3927,7 +3960,6 @@ build-tool-overrides:
 tell-me-when-its-released:
 - point-octree-0.5.5.3 # re-enable test and then we can resolve https://github.com/fpco/lts-haskell/issues/27
 - yarr-1.4.0.2 # Re-enable package https://github.com/fpco/stackage/issues/1876
-- req-0.2.0 # Remove from expected-test-failures https://github.com/mrkkrp/req/issues/14#issuecomment-287562784
 - vivid-0.2.0.5 # Re-enable package (disabed per MonadRandom < 0.5) https://github.com/fpco/stackage/issues/2180
 - cryptohash-md5-0.11.100.1 # re-enable benchmarks, https://github.com/fpco/stackage/issues/2538#issuecomment-304458844
 - cryptohash-sha1-0.11.100.1 # re-enable benchmarks, https://github.com/fpco/stackage/issues/2538#issuecomment-304458844
